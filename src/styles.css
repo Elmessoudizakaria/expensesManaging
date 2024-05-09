@@ -1,0 +1,155 @@
+.container {
+  display: flex;
+  height: 95vh;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.expense-icon {
+  color: #7aaa7c;
+  margin-right: 10px;
+}
+.expense-manager {
+  font-family: "Arial", sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.month-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.month-navigation button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.month-navigation button:hover {
+  background-color: #0056b3;
+}
+
+.expense-list,
+.expense-list-total {
+  list-style: none;
+  padding: 0;
+}
+
+.expense-list-total {
+  display: flex;
+  justify-content: space-between;
+}
+.expense-list-total li {
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 20px 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.expense-list li {
+  background-color: white;
+  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.expense-list li button {
+  background-color: unset;
+}
+.duplicate {
+  color: #0056b3;
+}
+.remove {
+  color: #d87878;
+}
+.expense-name {
+  font-weight: bold;
+}
+
+.expense-value {
+  color: #28a745;
+  font-weight: bold;
+}
+.element-label {
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+.element-buttons {
+  gap: 10px;
+  display: flex;
+}
+.element-buttons > button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+form {
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+form select {
+  text-transform: capitalize;
+}
+form input[type="text"],
+form select,
+form input[type="number"] {
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+form button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #218838;
+}
+
+@media only screen and (max-width: 600px) {
+  form input[type="text"],
+  form input[type="number"],
+  form select,
+  form button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  ,
+  form button {
+    margin: 0px;
+  }
+}
