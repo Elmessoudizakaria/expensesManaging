@@ -16,18 +16,11 @@ import {
   FaAngleDown,
   FaAngleUp,
 } from "react-icons/fa";
+import { EXPENSE_CATEGORIES } from "./tools";
 
-const EXPENSE_CATEGORIES = [
-  "house",
-  "food",
-  "transport",
-  "health",
-  "clothes",
-  "Car",
-];
 interface Expense {
   name: string;
-  value: string;
+  value: number;
   id: string;
 }
 const App = () => {
@@ -37,9 +30,12 @@ const App = () => {
   const [expenseValue, setExpenseValue] = useState("");
   const [budget, setBudget] = useState(5000);
   const [selectedList, setSelectedList] = useState("");
-  const [expenseCategories, setExpenseCategories] =
-    useState(EXPENSE_CATEGORIES);
+  const [expenseCategories, setExpenseCategories] = useState<string[]>([]);
 
+  useEffect(() => {
+    const categories = JSON.parse(localStorage.getItem("categories") || "[]");
+    setExpenseCategories(EXPENSE_CATEGORIES.concat(categories));
+  }, []);
   useEffect(() => {
     // Load expenses from localStorage
     const storedExpenses = JSON.parse(
@@ -51,7 +47,7 @@ const App = () => {
   const handleAddExpense = (event: any) => {
     event.preventDefault();
     if (!expenseName || !expenseValue) return;
-    addExpense(expenseName, expenseValue);
+    addExpense(expenseName, parseFloat(expenseValue));
     setExpenseName("");
     setExpenseValue("");
   };
@@ -60,7 +56,7 @@ const App = () => {
     setExpenses(expenses);
   };
 
-  const addExpense = (name: string, value: string) => {
+  const addExpense = (name: string, value: number) => {
     const newExpenses: Expense[] = [
       ...expenses,
       { name, value, id: `${expenses.length}` },
@@ -135,14 +131,14 @@ const App = () => {
   return (
     <div className="container">
       <div className="expense-manager">
+        <h3>Manage your expenses</h3>
         <div className="month-navigation">
           <button onClick={handlePreviousMonth}>
             <FaAngleLeft />
-            Previous
           </button>
-          <h3>Expenses for {formattedDate()}</h3>
+          <h3>{formattedDate()}</h3>
           <button onClick={handleNextMonth}>
-            Next <FaAngleRight />
+            <FaAngleRight />
           </button>
         </div>
         <form onSubmit={handleAddExpense}>

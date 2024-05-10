@@ -152,4 +152,13 @@ form button:hover {
   form button {
     margin: 0px;
   }
+  .element-label {
+    width: 80%;
+  }
+  .expense-list-total {
+    flex-direction: column;
+  }
+  .expense-list-total li {
+    width: 100%;
+  }
 }
