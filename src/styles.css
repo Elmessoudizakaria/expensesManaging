@@ -108,14 +108,18 @@
 button:hover {
   opacity: 0.8;
 }
-
+.form-container,
 form {
   margin-bottom: 20px;
   box-sizing: border-box;
 }
+.form-container,
 form select {
   text-transform: capitalize;
 }
+.form-container input[type="text"],
+.form-container select,
+.form-container input[type="number"],
 form input[type="text"],
 form select,
 form input[type="number"] {
@@ -126,7 +130,7 @@ form input[type="number"] {
   margin-bottom: 10px;
   box-sizing: border-box;
 }
-
+.form-container button,
 form button {
   padding: 10px 20px;
   border: none;
@@ -136,11 +140,16 @@ form button {
   cursor: pointer;
 }
 
+.form-container button:hover,
 form button:hover {
   background-color: #218838;
 }
 
 @media only screen and (max-width: 600px) {
+  .form-container input[type="text"],
+  .form-container select,
+  .form-container input[type="number"],
+  .form-container button,
   form input[type="text"],
   form input[type="number"],
   form select,
@@ -148,7 +157,7 @@ form button:hover {
     width: 100%;
     margin-bottom: 10px;
   }
-  ,
+  .form-container button,
   form button {
     margin: 0px;
   }
